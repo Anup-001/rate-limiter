@@ -1,10 +1,11 @@
+import os
 from fastapi import FastAPI, HTTPException
 from redis.asyncio import Redis 
 import time
 import uuid
 app = FastAPI()
-
-r = Redis(host="redis", port=6379, decode_responses=True)
+redis_host = os.getenv("REDIS_HOST", "localhost")
+r = Redis(host="redis_host", port=6379, decode_responses=True)
 
 # @app.get('/')
 # async def read_root():
